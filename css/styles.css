@@ -6,6 +6,8 @@
     --color-pressed-state: #404BBF;
     --color-boby-light: #F4F4FD;
     --color-border: #E7E9FC;
+    --color-subtle-text: #8E8F99;
+    --color-success: #31d0aa;
 }
 
 *,
@@ -38,6 +40,8 @@ h1, h2, h3, h4, h5, h6, p {
 
 img {
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 address {
@@ -121,6 +125,23 @@ address {
     gap: 40px;
 }
 
+.current {
+    color: var(--color-pressed-state);
+    position: relative;
+}
+
+.current::after {
+    position: absolute;
+    box-sizing: border-box;
+    border-radius: 2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    bottom: -1px;
+    background-color: var(--color-pressed-state);
+    content: "";
+}
+
 .header-link:hover,
 .contacts-link:hover {
     color: var(--color-pressed-state);
@@ -137,8 +158,20 @@ address {
 .hero-section {
     background-color: var(--color-navy-blue);
     text-align: center;
-    padding: 188px 0;
     height: 600px;
+    max-width: 1440px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 188px 0;
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office\ 1-2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .hero-title {
@@ -200,6 +233,17 @@ address {
 
 .advantage-item {
     width: 264px;
+}
+
+.hidden-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 112px;
+    background-color: var(--color-boby-light);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    border: 1px solid var(--color-subtle-text);
 }
 
 .advantage-title {
@@ -269,6 +313,38 @@ address {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
+    margin-bottom: 8px;
+}
+
+.social-list {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.social-item .social {
+    width: 40px;
+    height: 40px;
+}
+
+.social {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social:hover,
+:focus {
+    background-color: var(--color-pressed-state);
+}
+
+.icon {
+    fill: var(--color-boby-light);
 }
 /* END Team section */
 
@@ -315,6 +391,39 @@ address {
     line-height: 1.5;
     letter-spacing: 0.02em;
 }
+
+.portfolio-list .portfolio-item {
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover {
+    box-shadow: 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
+        0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-item:hover .portfolio-text-icon {
+    transform: translateY(0%);
+}
+
+.portfolio-icons {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-text-icon {
+    position: absolute;
+    top: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--color-boby-light);
+    padding: 40px 32px;
+    background-color: var(--color-primary);
+    height: 100%;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 /* END Section-portfolio */
 
 /* Footer */
@@ -322,6 +431,11 @@ address {
     background-color: var(--color-navy-blue);
     text-decoration: none;
     padding: 100px 0;
+}
+
+.footer .container {
+    display: flex;
+    align-items: baseline;
 }
 
 .footer-logo {
@@ -346,4 +460,57 @@ address {
     letter-spacing: 0.02em;
     max-width: 264px;
 }
+
+.footer-link {
+    margin-right: 120px;
+}
+
+.footer-address {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--color-body-background);
+    margin-bottom: 16px;
+}
+
+.footer-list {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-list > li {
+    width: 40px;
+    height: 40px;
+}
+
+.footer-list-social {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.footer-list .footer-social:focus,
+.footer-list .footer-social:hover {
+    background-color: var(--color-success);
+}
+
+.footer-social {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
 /*END Footer */
